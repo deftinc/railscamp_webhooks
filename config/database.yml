@@ -2,14 +2,16 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  user: <%= ENV.fetch("RAILSCAMP_WEBHOOKS_DATABASE_USERNAME")  %>
-  password: <%= ENV.fetch("RAILSCAMP_WEBHOOKS_DATABASE_PASSWORD")  %>
 
 development:
   <<: *default
   database: railscamp_webhooks_development
+  user: <%= ENV.fetch("RAILSCAMP_WEBHOOKS_DATABASE_USERNAME") %>
+  password: <%= ENV.fetch("RAILSCAMP_WEBHOOKS_DATABASE_PASSWORD")  %>
 test:
   <<: *default
   database: railscamp_webhooks_test
+  user: <%= ENV.fetch("RAILSCAMP_WEBHOOKS_DATABASE_USERNAME") %>
+  password: <%= ENV.fetch("RAILSCAMP_WEBHOOKS_DATABASE_PASSWORD")  %>
 production:
   url: <%= ENV['DATABASE_URL'] %>
